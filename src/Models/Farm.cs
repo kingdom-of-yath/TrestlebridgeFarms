@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.Facilities;
 
@@ -8,7 +9,7 @@ namespace Trestlebridge.Models
 {
     public class Farm
     {
-        public List<GrazingField> GrazingFields { get; } = new List<GrazingField>();
+        public List<GrazingField> GrazingFields { get;} = new List<GrazingField>();
 
         /*
             This method must specify the correct product interface of the
@@ -31,6 +32,7 @@ namespace Trestlebridge.Models
         {
             GrazingFields.Add(field);
         }
+        
 
         public override string ToString()
         {
