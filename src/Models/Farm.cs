@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.Facilities;
+using System.Threading;
 
 namespace Trestlebridge.Models
 {
     public class Farm
     {
         public List<GrazingField> GrazingFields { get; } = new List<GrazingField>();
-
+        public List<PlowedField> PlowedFields { get; } = new List<PlowedField>();
         /*
             This method must specify the correct product interface of the
             resource being purchased.
@@ -30,6 +31,14 @@ namespace Trestlebridge.Models
         public void AddGrazingField (GrazingField field)
         {
             GrazingFields.Add(field);
+            Console.WriteLine ("Grazing Field Succesfully Created");
+            Thread.Sleep(1500);
+        }
+        public void AddPlowedField (PlowedField field)
+        {
+            PlowedFields.Add(field);
+            Console.WriteLine ("Plowed Field Succesfully Created");
+            Thread.Sleep(1500);
         }
 
         public override string ToString()
@@ -38,7 +47,13 @@ namespace Trestlebridge.Models
 
             GrazingFields.ForEach(gf => report.Append(gf));
 
+            PlowedFields.ForEach(gf => report.Append(gf));
+
             return report.ToString();
+
         }
+
+
+
     }
 }
