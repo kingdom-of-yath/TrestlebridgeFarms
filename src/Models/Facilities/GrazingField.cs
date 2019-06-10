@@ -20,8 +20,14 @@ namespace Trestlebridge.Models.Facilities {
 
         public void AddResource (IGrazing animal)
         {
+            try{
+            _animals.Add(animal);
+            }
+            catch (Exception ){
             // TODO: implement this...
             throw new NotImplementedException();
+
+            }
         }
 
         public void AddResource (List<IGrazing> animals) 
