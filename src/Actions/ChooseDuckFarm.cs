@@ -9,7 +9,7 @@ namespace Trestlebridge.Actions {
         public static void CollectInput (Farm farm, IDuck animal) {
             Console.Clear();
 
-            for (int i = 0; i < farm.ChickenHouses.Count; i++)
+            for (int i = 0; i < farm.DuckFarms.Count; i++)
             {
                 Console.WriteLine ($"{i + 1}. Duck Farm");
             }
