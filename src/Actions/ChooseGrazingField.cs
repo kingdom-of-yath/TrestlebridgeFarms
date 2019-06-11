@@ -18,10 +18,6 @@ namespace Trestlebridge.Actions
             }
 
             Console.WriteLine();
-            Console.WriteLine("1. Grazing field");
-            Console.WriteLine("2. Plowed field");
-            Console.WriteLine("3. Chicken house");
-            Console.WriteLine("4. Duck House");
 
             Console.WriteLine();
             // How can I output the type of animal chosen here?
