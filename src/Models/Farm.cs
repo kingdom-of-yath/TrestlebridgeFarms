@@ -58,7 +58,7 @@ namespace Trestlebridge.Models
             Thread.Sleep(1500);
 
         }
-        
+
 
         public override string ToString()
         {
