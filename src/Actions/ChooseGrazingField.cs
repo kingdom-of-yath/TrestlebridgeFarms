@@ -14,11 +14,7 @@ namespace Trestlebridge.Actions
 
             for (int i = 0; i < farm.GrazingFields.Count; i++)
             {
-<<<<<<< HEAD
                 Console.WriteLine ($"{i + 1}. Grazing Field");
-=======
-                Console.WriteLine($"{i + 0}. Grazing Field");
->>>>>>> master
             }
 
             Console.WriteLine();
