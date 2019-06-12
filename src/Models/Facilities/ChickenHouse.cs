@@ -7,10 +7,21 @@ using Trestlebridge.Interfaces;
 namespace Trestlebridge.Models.Facilities {
     public class ChickenHouse : IFacility<IChicken>
     {
-        private int _capacity = 2;
+        private int _capacity = 5;
         private Guid _id = Guid.NewGuid();
 
         private List<IChicken> _animals = new List<IChicken>();
+        public int Chicken()
+        {
+            return _animals.FindAll(animal => animal.Type == "Chicken").Count;
+        }
+        public List<IChicken> Animals
+        {
+            get
+            {
+                return _animals;
+            }
+        }
 
         public double Capacity {
             get {
