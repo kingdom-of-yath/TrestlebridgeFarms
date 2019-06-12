@@ -13,10 +13,10 @@ namespace Trestlebridge.Actions {
             {
                 Console.WriteLine ($"{i + 1}. Plowed Field");
             }
-            for (int j = 0; j < farm.NaturalFields.Count; j++)
-            {
-                Console.WriteLine ($"{j + 1}. Natural Field");
-            }
+            // for (int j = 0; j < farm.NaturalFields.Count; j++)
+            // {
+            //     Console.WriteLine ($"{j + 1}. Natural Field");
+            // }
 
             Console.WriteLine ();
 
