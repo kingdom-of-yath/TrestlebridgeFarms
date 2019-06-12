@@ -15,7 +15,6 @@ namespace Trestlebridge.Actions
         {
             Console.Clear();
             List<GrazingField> CapacityList = farm.GrazingFields.Where(thing => thing.GetCount < thing.Capacity).ToList();
-            
             if(CapacityList.Count == 0)
             {
                 Console.WriteLine(" All Fields are at Capacity");
@@ -26,6 +25,7 @@ namespace Trestlebridge.Actions
                 for (int i = 0; i < CapacityList.Count; i++) {
                 if(CapacityList[i].GetCount < farm.GrazingFields[i].Capacity) 
                 Console.WriteLine($"{i + 1}: Number of animals in the Grazing Field {CapacityList[i].GetCount}");
+
 
             }} 
             Console.WriteLine();

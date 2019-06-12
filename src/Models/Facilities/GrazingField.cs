@@ -12,9 +12,21 @@ namespace Trestlebridge.Models.Facilities {
 
         private List<IGrazing> _animals = new List<IGrazing>();
 
+        public int Cows()
+        {
+            return _animals.
+        }
+
         public int GetCount {
             get {
                 return _animals.Count;
+            }
+        }
+        public List<IGrazing> Animals
+        {
+            get
+            {
+                return _animals;
             }
         }
 
