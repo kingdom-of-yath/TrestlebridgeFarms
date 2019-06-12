@@ -7,7 +7,7 @@ using Trestlebridge.Interfaces;
 namespace Trestlebridge.Models.Facilities {
     public class DuckFarm : IFacility<IDuck>
     {
-        private int _capacity = 50;
+        private int _capacity = 2;
         private Guid _id = Guid.NewGuid();
 
         private List<IDuck> _animals = new List<IDuck>();
@@ -15,6 +15,12 @@ namespace Trestlebridge.Models.Facilities {
         public double Capacity {
             get {
                 return _capacity;
+            }
+        }
+
+        public int GetCount {
+            get {
+                return _animals.Count;
             }
         }
 
