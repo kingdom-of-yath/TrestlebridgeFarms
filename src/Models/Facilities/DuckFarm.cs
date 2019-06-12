@@ -7,15 +7,26 @@ using Trestlebridge.Interfaces;
 namespace Trestlebridge.Models.Facilities {
     public class DuckFarm : IFacility<IDuck>
     {
-        private int _capacity = 2;
+        private int _capacity = 5;
         private Guid _id = Guid.NewGuid();
 
         private List<IDuck> _animals = new List<IDuck>();
+        public List<IDuck> Animals
+        {
+            get
+            {
+                return _animals;
+            }
+        }
 
         public double Capacity {
             get {
                 return _capacity;
             }
+        }
+        public int Duck()
+        {
+            return _animals.FindAll(animal => animal.Type == "Duck").Count;
         }
 
         public int GetCount {

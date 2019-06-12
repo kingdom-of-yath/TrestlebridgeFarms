@@ -7,15 +7,32 @@ using Trestlebridge.Interfaces;
 namespace Trestlebridge.Models.Facilities {
     public class GrazingField : IFacility<IGrazing>
     {
-        private int _capacity = 2;
+        private int _capacity = 5;
         private Guid _id = Guid.NewGuid();
 
         private List<IGrazing> _animals = new List<IGrazing>();
 
         public int Cows()
         {
-            return _animals.
+            return _animals.FindAll(animal => animal.Type == "Cow").Count;
         }
+        public int Pig()
+        {
+            return _animals.FindAll(animal => animal.Type == "Pig").Count;
+        }
+        public int Ostrich()
+        {
+            return _animals.FindAll(animal => animal.Type == "Ostrich").Count;
+        }
+        public int Sheep()
+        {
+            return _animals.FindAll(animal => animal.Type == "Sheep").Count;
+        }
+        public int Goat()
+        {
+            return _animals.FindAll(animal => animal.Type == "Goat").Count;
+        }
+
 
         public int GetCount {
             get {
