@@ -4,7 +4,6 @@ using System.Text;
 using System.Threading;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.Facilities;
-using System.Threading;
 
 namespace Trestlebridge.Models
 {
@@ -14,6 +13,7 @@ namespace Trestlebridge.Models
         public List<PlowedField> PlowedFields { get; } = new List<PlowedField>();
         public List<ChickenHouse> ChickenHouses { get; } = new List<ChickenHouse>();
         public List<DuckHouse> DuckHouses { get; } = new List<DuckHouse>();
+        public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
         /*
             This method must specify the correct product interface of the
             resource being purchased.
@@ -58,6 +58,13 @@ namespace Trestlebridge.Models
             Thread.Sleep(1500);
 
         }
+        public void AddNaturalField (NaturalField field)
+        {
+            NaturalFields.Add(field);
+            Console.WriteLine ("Natural Field successfully created");
+            Thread.Sleep(1500);
+
+        }
         
 
         public override string ToString()
@@ -71,6 +78,8 @@ namespace Trestlebridge.Models
             ChickenHouses.ForEach(gf => report.Append(gf));
 
             DuckHouses.ForEach(gf => report.Append(gf));
+
+            NaturalFields.ForEach(gf => report.Append(gf));
 
             return report.ToString();
 
