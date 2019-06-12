@@ -22,7 +22,7 @@ namespace Trestlebridge.Actions {
             } else {
                 for (int i = 0; i < CapacityList.Count; i++) {
                 if(CapacityList[i].GetCount < farm.ChickenHouses[i].Capacity) 
-                Console.WriteLine($"{i + 1}: Number of animals in the Grazing Field {CapacityList[i].GetCount}");
+                Console.WriteLine($"{i + 1}: Number of Chickens in the Chicken Coop {CapacityList[i].GetCount}");
 
             }} 
 
