@@ -12,8 +12,9 @@ namespace Trestlebridge.Models
         public List<GrazingField> GrazingFields { get; } = new List<GrazingField>();
         public List<PlowedField> PlowedFields { get; } = new List<PlowedField>();
         public List<ChickenHouse> ChickenHouses { get; } = new List<ChickenHouse>();
-        public List<DuckHouse> DuckHouses { get; } = new List<DuckHouse>();
+        
         public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
+        public List<DuckFarm> DuckFarms { get; } = new List<DuckFarm>();
         /*
             This method must specify the correct product interface of the
             resource being purchased.
@@ -25,6 +26,12 @@ namespace Trestlebridge.Models
             {
                 case "Cow":
                     GrazingFields[index].AddResource((IGrazing)resource);
+                    break;
+                case "Chicken":
+                    ChickenHouses[index].AddResource((IChicken)resource);
+                    break;
+                case "Duck":
+                    DuckFarms[index].AddResource((IDuck)resource);
                     break;
                 default:
                     break;
@@ -51,9 +58,9 @@ namespace Trestlebridge.Models
             Thread.Sleep(1500);
         }
 
-        public void AddDuckHouse (DuckHouse field)
+        public void AddDuckFarm (DuckFarm field)
         {
-            DuckHouses.Add(field);
+            DuckFarms.Add(field);
             Console.WriteLine ("Duck house successfully created");
             Thread.Sleep(1500);
 
@@ -77,7 +84,7 @@ namespace Trestlebridge.Models
 
             ChickenHouses.ForEach(gf => report.Append(gf));
 
-            DuckHouses.ForEach(gf => report.Append(gf));
+            DuckFarms.ForEach(gf => report.Append(gf));
 
             NaturalFields.ForEach(gf => report.Append(gf));
 

@@ -1,20 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Animals;
 using Trestlebridge.Models.Facilities;
 
-namespace Trestlebridge.Actions
-{
-    public class ChooseGrazingField
-    {
-        public static void CollectInput(Farm farm, IGrazing animal)
-        {
+namespace Trestlebridge.Actions {
+    public class ChooseDuckFarm {
+        public static void CollectInput (Farm farm, IDuck animal) {
             Console.Clear();
-            List<GrazingField> CapacityList = farm.GrazingFields.Where(thing => thing.GetCount < thing.Capacity).ToList();
+
+        List<DuckFarm> CapacityList = farm.DuckFarms.Where(thing => thing.GetCount < thing.Capacity).ToList();
             
             if(CapacityList.Count == 0)
             {
@@ -24,16 +21,18 @@ namespace Trestlebridge.Actions
                 return;
             } else {
                 for (int i = 0; i < CapacityList.Count; i++) {
-                if(CapacityList[i].GetCount < farm.GrazingFields[i].Capacity) 
-                Console.WriteLine($"{i + 1}: Number of animals in the Grazing Field {CapacityList[i].GetCount}");
+                if(CapacityList[i].GetCount < farm.DuckFarms[i].Capacity) 
+                Console.WriteLine($"{i + 1}: Number of Ducks in the Duck Farm {CapacityList[i].GetCount}");
 
             }} 
-            Console.WriteLine();
 
-            Console.WriteLine();
+            Console.WriteLine ();
+
             // How can I output the type of animal chosen here?
-            Console.WriteLine($"Place the animal where?");
-            int choice = Int32.Parse(Console.ReadLine());
+            Console.WriteLine ($"Place the animal where?");
+
+            Console.Write ("> ");
+            int choice = Int32.Parse(Console.ReadLine ());
 
             CapacityList[choice - 1].AddResource(animal);
 

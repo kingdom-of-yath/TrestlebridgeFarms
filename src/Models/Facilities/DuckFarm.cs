@@ -5,12 +5,12 @@ using Trestlebridge.Interfaces;
 
 
 namespace Trestlebridge.Models.Facilities {
-    public class DuckHouse : IFacility<IGrazing>
+    public class DuckFarm : IFacility<IDuck>
     {
-        private int _capacity = 50;
+        private int _capacity = 2;
         private Guid _id = Guid.NewGuid();
 
-        private List<IGrazing> _animals = new List<IGrazing>();
+        private List<IDuck> _animals = new List<IDuck>();
 
         public double Capacity {
             get {
@@ -18,13 +18,25 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public void AddResource (IGrazing animal)
-        {
-            // TODO: implement this...
-            throw new NotImplementedException();
+        public int GetCount {
+            get {
+                return _animals.Count;
+            }
         }
 
-        public void AddResource (List<IGrazing> animals)
+        public void AddResource (IDuck animal)
+        {
+            try{
+            _animals.Add(animal);
+            }
+            catch (Exception ){
+            // TODO: implement this...
+            throw new NotImplementedException();
+
+            }
+        }
+
+        public void AddResource (List<IDuck> animals)
         {
             // TODO: implement this...
             throw new NotImplementedException();
@@ -35,7 +47,7 @@ namespace Trestlebridge.Models.Facilities {
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Duck house {shortId} has {this._animals.Count} animals\n");
+            output.Append($"Duck farm {shortId} has {this._animals.Count} animals\n");
             this._animals.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
